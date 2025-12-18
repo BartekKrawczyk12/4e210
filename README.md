@@ -13,6 +13,12 @@ Funkcjonalności:
 -Sprawdzanie warunków wygranej, przegranej (BUST) lub remisu
 -Historia rozegranych gier
 -Filtrowanie gier po nazwie krupiera (GET)
+-Hashowanie haseł przy edycji nazw krupiera, aby chronić dane przed podglądaniem w bazie.
+    Aby zmienić nazwę krupiera:
+    1. Przejdź do /dealer/:id
+    2. Wprowadź nową nazwę krupiera
+    3. Podaj hasło zabezpieczające zmianę (hasło jest hashowane w bazie)
+    4. Zatwierdź zmianę
 -Sortowanie gier po:
     -dacie utworzenia
     -sumie kart gracza
@@ -30,11 +36,9 @@ Node.js (v18+)
 MongoDB (lokalnie lub przez Docker)
 Kroki uruchomienia:
 
-    -Sklonuj repozytorium:
-    git clone 
 
     -Przejdź do katalogu projektu:
-    cd 13-11-2025-bazy-danych-nosql
+    BlackJack
 
     -Zainstaluj zależności:
     npm install
