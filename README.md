@@ -36,6 +36,8 @@ Node.js (v18+)
 MongoDB (lokalnie lub przez Docker)
 Kroki uruchomienia:
 
+    -Pobierz projekt z repozytorium:
+    https://github.com/BartekKrawczyk12/4e210
 
     -Przejdź do katalogu projektu:
     BlackJack
@@ -94,3 +96,4 @@ Technologie:
     -HTML
 
 Autor: Bartosz Krawczyk
+
