@@ -9,3 +9,5 @@ function simpleHash(text) {
 }
 
 module.exports = { simpleHash };
+
+//jakos jeeeest, słabo ale jest :)
