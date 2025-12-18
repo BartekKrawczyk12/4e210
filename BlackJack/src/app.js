@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const router = require('./routes');  // <-- ładuje src/routes/index.js
+const router = require('./routes');
 
 const app = express();
 
@@ -10,15 +10,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// użycie routera
 app.use('/', router);
 
-// 404 handler
 app.use((req, res) => {
     res.status(404).render('pages/error/404');
 });
 
-// Error handler
 app.use((err, req, res, next) => {
     console.error(err);
     const status = err.status || 500;
@@ -32,3 +29,4 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
