@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<main>
+    <h2>Nowa gra Blackjack</h2>
+    <form action="/new" method="POST">
+        <div>
+            <label for="dealer">Nazwa krupiera:</label>
+            <input type="text" id="dealer" name="dealer" required minlength="3">
+        </div>
+        <div>
+            <label for="password">Hasło (do ochrony krupiera):</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Utwórz grę</button>
+    </form>
+    <a href="/">Powrót do listy gier</a>
+</main>
+
+<%- include('../partials/footer') %>

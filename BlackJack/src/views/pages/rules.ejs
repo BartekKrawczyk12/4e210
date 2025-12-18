@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<h2>Zasady gry w Blackjack</h2>
+
+<section>
+    <h3>Cel gry</h3>
+    <p>Celem gry jest uzyskanie sumy kart jak najbliższej 21, nie przekraczając tej wartości.  
+       Gracz rywalizuje z krupierem.</p>
+
+    <h3>Karty i ich wartości</h3>
+    <ul>
+        <li>Karty od 2 do 10 mają wartość liczbową odpowiadającą numerowi.</li>
+        <li>Walet (J), Dama (Q), Król (K) - wartość 10.</li>
+        <li>Ace (A) - wartość 11 lub 1, zależnie od potrzeb, aby nie przekroczyć 21.</li>
+    </ul>
+
+    <h3>Przebieg gry</h3>
+    <ol>
+        <li>Gracz rozpoczyna grę i dobiera karty („Hit”) lub kończy turę („Stand”).</li>
+        <li>Gracz nie może dobrać więcej kart, jeśli suma przekroczy 21 - gra się kończy (BUST).</li>
+        <li>Po zakończeniu tury gracza, krupier dobiera karty dopóki suma jego kart jest ≤16.</li>
+        <li>Jeśli krupier przekroczy 21 - BUST i wygrywa gracz.</li>
+        <li>Jeżeli obie strony mają ≤ 21, wygrywa ten, kto jest bliżej 21. Remis, jeśli suma jest równa.</li>
+    </ol>
+
+    <h3>Opcje</h3>
+    <ul>
+        <li><b>Dobierz kartę:</b> gracz dobiera kartę.</li>
+        <li><b>Stand:</b> gracz kończy turę, krupier dobiera karty automatycznie.</li>
+    </ul>
+
+    <p>Powodzenia w grze!</p>
+</section>
+
+<%- include('../partials/footer') %>

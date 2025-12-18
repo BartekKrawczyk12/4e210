@@ -1,0 +1,66 @@
+<%- include('../partials/header') %>
+
+<h2>Historia rozdań</h2>
+
+
+<form method="GET" action="/">
+    <label>Filtruj po krupierze:</label>
+    <input
+        type="text"
+        name="dealer"
+        value="<%= query.dealer || '' %>"
+    >
+
+    <label>Sortuj po:</label>
+    <select name="sort">
+        <option value="createdAt" <%= query.sort === 'createdAt' ? 'selected' : '' %>>Data</option>
+        <option value="playerSum" <%= query.sort === 'playerSum' ? 'selected' : '' %>>Suma gracza</option>
+        <option value="dealerSum" <%= query.sort === 'dealerSum' ? 'selected' : '' %>>Suma krupiera</option>
+    </select>
+
+    <select name="order">
+        <option value="asc" <%= query.order === 'asc' ? 'selected' : '' %>>Rosnąco</option>
+        <option value="desc" <%= query.order === 'desc' ? 'selected' : '' %>>Malejąco</option>
+    </select>
+
+    <button type="submit">Zastosuj</button>
+</form>
+
+
+<ul>
+<% games.forEach(g => { %>
+    <li>
+        <b>Gracz:</b>
+        <% if (g.player && g.player.length) { %>
+            <% g.player.forEach(c => { %> <%= c.card %> <% }) %>
+        <% } else { %>
+            Brak kart
+        <% } %>
+        — SUMA: <%= g.playerSum || 0 %>
+
+        <br>
+
+        <b>Krupier:</b>
+        <% if (g.dealer && g.dealer.length) { %>
+            <% g.dealer.forEach(c => { %> <%= c.card %> <% }) %>
+        <% } else { %>
+            Brak kart
+        <% } %>
+        — SUMA: <%= g.dealerSum || 0 %>
+
+        <br>
+
+        Krupier: <%= g.dealerName || 'Brak' %>
+
+        <a href="/dealer/<%= g._id %>">Zmień krupiera</a>
+
+        <form action="/remove/<%= g._id %>" method="POST" style="display:inline;">
+            <button>Usuń</button>
+        </form>
+
+        <hr>
+    </li>
+<% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<h2>Obecna gra</h2>
+
+<% if (!game) { %>
+    <p><b>Nie rozpoczęto jeszcze żadnej gry.</b></p>
+<% } else { %>
+    <p><b>Krupier:</b> <%= game.dealerName %></p>
+
+    <div style="display: flex; gap: 30px; align-items: flex-start;">
+        <!-- Sekcja z kartami -->
+        <div>
+            <h3>Gracz</h3>
+            <p>Karty: 
+                <% game.player.forEach(c => { %>
+                    <%= c.card %> 
+                <% }) %>
+            </p>
+            <p>SUMA: <b><%= game.playerSum %></b></p>
+
+            <h3>Krupier</h3>
+            <p>Karty:
+                <% game.dealer.forEach(c => { %>
+                    <%= c.card %>
+                <% }) %>
+            </p>
+            <p>SUMA: <b><%= game.dealerSum %></b></p>
+
+            <form action="/current/hit" method="POST" style="display:inline;">
+                <button type="submit" <% if (game.finished) { %>disabled<% } %>>Dobierz kartę</button>
+            </form>
+
+            <form action="/current/stand" method="POST" style="display:inline;">
+                <button type="submit" <% if (game.finished) { %>disabled<% } %>>Stand</button>
+            </form>
+        </div>
+
+        <!-- Sekcja wyniku gry obok -->
+        <div>
+            <% if (game.finished) { %>
+                <h2>Wynik gry:</h2>
+                <% if (game.result === 'player bust') { %>
+                    <p style="color:red;"><b>Gracz przegrał! (BUST)</b></p>
+                <% } else if (game.result === 'dealer bust') { %>
+                    <p style="color:green;"><b>Krupier przegrał! (BUST)</b></p>
+                <% } else if (game.result === 'player wins') { %>
+                    <p style="color:green;"><b>Gracz wygrał!</b></p>
+                <% } else if (game.result === 'dealer wins') { %>
+                    <p style="color:red;"><b>Krupier wygrał!</b></p>
+                <% } else if (game.result === 'draw') { %>
+                    <p><b>Remis!</b></p>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+<% } %>
+
+<%- include('../partials/footer') %>

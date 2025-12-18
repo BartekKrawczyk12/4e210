@@ -1,0 +1,16 @@
+<%- include('../../partials/header') %>
+<main>
+    <h2><%= status %> — Coś poszło nie tak</h2>
+
+    <p><%= message %></p>
+
+    <% if (typeof errorDetails !== 'undefined' && errorDetails) { %>
+        <h3>Szczegóły (tylko w trybie deweloperskim)</h3>
+        <pre><%= errorDetails.stack %></pre>
+    <% } else { %>
+        <p>Spróbuj ponownie później lub skontaktuj się z administratorem.</p>
+    <% } %>
+
+    <a href="/">Wróć do listy</a>
+</main>
+<%- include('../../partials/footer') %>

@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<main>
+    <h2>Edytuj krupiera</h2>
+    <form action="/dealer/<%= game._id %>" method="POST">
+        <div>
+            <label for="dealer">Nowa nazwa krupiera:</label>
+            <input type="text" id="dealer" name="dealer" value="<%= game.dealerName %>" required minlength="3">
+        </div>
+        <div>
+            <label for="password">Hasło (aktualne):</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+    <a href="/">Powrót do listy gier</a>
+</main>
+
+<%- include('../partials/footer') %>
